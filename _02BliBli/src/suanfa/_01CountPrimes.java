@@ -1,3 +1,5 @@
+package suanfa;
+
 /**
  * 计算质数的个数
  */

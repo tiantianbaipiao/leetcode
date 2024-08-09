@@ -1,3 +1,5 @@
+package suanfa;
+
 import javafx.util.Pair;
 import utils.TreeNode;
 

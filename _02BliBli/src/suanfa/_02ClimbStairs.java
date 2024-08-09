@@ -1,3 +1,5 @@
+package suanfa;
+
 /**
  * 70. 爬楼梯
  *

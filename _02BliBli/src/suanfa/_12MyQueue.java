@@ -1,3 +1,5 @@
+package suanfa;
+
 import java.util.Stack;
 
 public class _12MyQueue {

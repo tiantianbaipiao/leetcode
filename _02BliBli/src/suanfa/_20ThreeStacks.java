@@ -1,3 +1,5 @@
+package suanfa;
+
 public class _20ThreeStacks {
   private int[] data;
   private int stackSize;

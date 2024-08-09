@@ -1,3 +1,5 @@
+package suanfa;
+
 /**
  * 斐波那契数列
  * */

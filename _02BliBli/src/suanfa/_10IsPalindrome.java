@@ -1,3 +1,5 @@
+package suanfa;
+
 import utils.ListNode;
 
 public class _10IsPalindrome {
