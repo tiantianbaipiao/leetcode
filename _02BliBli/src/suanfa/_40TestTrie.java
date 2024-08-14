@@ -1,3 +1,5 @@
+package suanfa;
+
 class TrieNode {
   // 初始化孩子节点为 null
   TrieNode[] children = new TrieNode[26];
