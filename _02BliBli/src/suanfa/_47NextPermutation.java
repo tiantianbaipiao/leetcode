@@ -1,3 +1,5 @@
+package suanfa;
+
 /**
  * leetcode 31. Next Permutation
  */
