@@ -10,11 +10,11 @@ import java.util.Map;
  * 如果不存在，则向缓存中插入该组 key-value 。如果插入操作导致关键字数量超过 capacity ，则应该 逐出 最久未使用的关键字。
  * 函数 get 和 put 必须以 O(1) 的平均时间复杂度运行
  */
-public class LRUCache {
+public class _70LRUCache {
     private final LinkedHashMap<Integer, Integer> cache;
     private final int capacity;
 
-    public LRUCache(int capacity) {
+    public _70LRUCache(int capacity) {
         this.capacity = capacity;
         this.cache = new LinkedHashMap<Integer, Integer>(capacity, 0.75f, true) {
             protected boolean removeEldestEntry(Map.Entry eldest) {
