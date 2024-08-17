@@ -1,3 +1,5 @@
+package suanfa;
+
 import java.util.Arrays;
 
 /**
