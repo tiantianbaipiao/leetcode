@@ -4,4 +4,34 @@
  * 返回艾希处于中毒状态的 总 秒数。
  */
 public class _10FindPoisonedDuration {
+  public int findPoisonedDuration(int[] timeSeries, int duration) {
+    if (timeSeries.length == 0) {
+      return 0;
+    }
+
+    int totalDuration = 0;
+    for (int i = 0; i < timeSeries.length - 1; i++) {
+      // 如果下一次攻击发生在当前中毒时间内，则更新中毒时间
+      int gap = timeSeries[i + 1] - timeSeries[i];
+      if (gap < duration) {
+        totalDuration += gap;
+      } else {
+        totalDuration += duration;
+      }
+    }
+
+    // 最后一次攻击总是会加上完整的 duration 时间
+    totalDuration += duration;
+
+    return totalDuration;
+  }
+
+  // 测试函数
+  public static void main(String[] args) {
+    _10FindPoisonedDuration solution = new _10FindPoisonedDuration();
+    int[] timeSeries = {1, 4};
+    int duration = 2;
+    System.out.println(solution.findPoisonedDuration(timeSeries, duration)); // 应输出 4
+  }
 }
+
