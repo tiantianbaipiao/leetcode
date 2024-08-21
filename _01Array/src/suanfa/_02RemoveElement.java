@@ -1,3 +1,5 @@
+package suanfa;
+
 /**
  * 删除元素
  */

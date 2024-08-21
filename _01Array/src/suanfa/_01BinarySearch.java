@@ -1,3 +1,5 @@
+package suanfa;
+
 /**
  * 二分查找
  */

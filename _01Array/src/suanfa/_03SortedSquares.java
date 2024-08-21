@@ -1,3 +1,5 @@
+package suanfa;
+
 /**
  * 有序数组的平方
  */
