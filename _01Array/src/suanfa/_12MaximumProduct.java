@@ -1,4 +1,4 @@
-/**
+package suanfa; /**
  * 给你一个整型数组 nums ，在数组中找出由三个数组成的最大乘积，并输出这个乘积。
  */
 import java.util.Arrays;
