@@ -1,3 +1,5 @@
+package suanfa;
+
 /**
  * 给你一个 m x n 的矩阵 M 和一个操作数组 op 。
  * 矩阵初始化时所有的单元格都为 0 。ops[i] = [ai, bi]

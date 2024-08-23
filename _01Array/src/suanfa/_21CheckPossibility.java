@@ -1,3 +1,5 @@
+package suanfa;
+
 /**
  * 给你一个长度为 n 的整数数组 nums ，
  *
