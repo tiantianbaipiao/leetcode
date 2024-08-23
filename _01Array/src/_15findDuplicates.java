@@ -1,6 +1,9 @@
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * 数组中重复的数据 要求找出数组中所有重复的数字。
+ */
 public class _15findDuplicates {
     public List<Integer> findDuplicates(int[] nums) {
         List<Integer> result = new ArrayList<>();
