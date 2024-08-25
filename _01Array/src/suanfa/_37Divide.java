@@ -1,3 +1,5 @@
+package suanfa;
+
 /**
  * 给你两个整数，被除数 dividend 和除数 divisor。将两数相除，要求 不使用 乘法、除法和取余运算。
  */
