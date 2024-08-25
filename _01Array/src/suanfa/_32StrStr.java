@@ -1,3 +1,5 @@
+package suanfa;
+
 /**
  * 实现一个函数，用来查找一个字符串 (haystack) 中是否包含另一个字符串 (needle)，
  * 如果包含则返回 needle 在 haystack 中第一次出现的位置索引，如果不包含则返回 -1
