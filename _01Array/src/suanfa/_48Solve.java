@@ -1,3 +1,5 @@
+package suanfa;
+
 /**
  * 力扣130
  */
