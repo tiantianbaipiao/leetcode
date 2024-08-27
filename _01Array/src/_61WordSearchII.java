@@ -9,7 +9,7 @@ import java.util.Set;
  * 单词必须按照字母顺序，通过 相邻的单元格 内的字母构成，其中“相邻”单元格是那些水
  * 平相邻或垂直相邻的单元格。同一个单元格内的字母在一个单词中不允许被重复使用。
  */
-public class WordSearchII {
+public class _61WordSearchII {
     private static final int[][] DIRECTIONS = {{-1, 0}, {1, 0}, {0, -1}, {0, 1}};
     private Set<String> foundWords = new HashSet<>();
     private TrieNode root = new TrieNode();
@@ -85,7 +85,7 @@ public class WordSearchII {
         String[] words = {"oath", "pea", "eat", "rain"};
 
         // 输出结果
-        List<String> result = new WordSearchII().findWords(board, words);
+        List<String> result = new _61WordSearchII().findWords(board, words);
         System.out.println(result); // 输出 [eat, oat, pea]
     }
 }
