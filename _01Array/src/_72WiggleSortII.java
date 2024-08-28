@@ -15,11 +15,11 @@ public class _72WiggleSortII {
         // 先对数组进行排序
         Arrays.sort(nums);
 
-        // 计算中位数的位置
+        // 从中间开始交替放置元素
         int mid = (nums.length - 1) / 2;
-
-        // 从中间开始，交替放置元素
         int[] temp = new int[nums.length];
+
+        // 从中间向两边交替放置元素
         int left = 0, right = nums.length - 1;
         for (int i = 0; i <= mid; i++) {
             temp[left] = nums[mid - i];
@@ -46,3 +46,4 @@ public class _72WiggleSortII {
         }
     }
 }
+
