@@ -1,3 +1,5 @@
+package suanfa;
+
 /**
  * 生命游戏
  */

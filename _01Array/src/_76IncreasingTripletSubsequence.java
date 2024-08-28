@@ -1,7 +1,7 @@
 /**
  * 给你一个整数数组 nums ，判断这个数组中是否存在长度为 3 的递增子序列。
  */
-public class IncreasingTripletSubsequence {
+public class _76IncreasingTripletSubsequence {
 
     /**
      * 判断一个整数数组中是否存在递增的三元子序列
@@ -37,7 +37,7 @@ public class IncreasingTripletSubsequence {
     }
 
     public static void main(String[] args) {
-        IncreasingTripletSubsequence solution = new IncreasingTripletSubsequence();
+        _76IncreasingTripletSubsequence solution = new _76IncreasingTripletSubsequence();
 
         // 测试数据
         int[] nums1 = {1, 2, 3, 4, 5};

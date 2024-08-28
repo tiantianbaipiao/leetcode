@@ -1,3 +1,5 @@
+package suanfa;
+
 /**
  * 有一个单链表的 head，我们想删除它其中的一个节点 node。
  *
