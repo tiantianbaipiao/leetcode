@@ -1,3 +1,6 @@
+/**
+ * 生命游戏
+ */
 public class _69GameLife {
     public void gameOfLife(int[][] board) {
         if (board == null || board.length == 0 || board[0].length == 0) {

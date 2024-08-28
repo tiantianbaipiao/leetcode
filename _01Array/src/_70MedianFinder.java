@@ -1,5 +1,8 @@
 import java.util.PriorityQueue;
 
+/**
+ * 数据流的中文数
+ */
 public class _70MedianFinder {
     // 最大堆存储较小的一半数字
     private PriorityQueue<Integer> maxHeap;
