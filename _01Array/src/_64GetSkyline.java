@@ -3,7 +3,7 @@ import java.util.*;
 /**
  * 218. 天际线问题
  */
- class Solution {
+ class _64GetSkyline {
   public List<List<Integer>> getSkyline(int[][] buildings) {
     PriorityQueue<int[]> pq = new PriorityQueue<int[]>((a, b) -> b[1] - a[1]);
     List<Integer> boundaries = new ArrayList<Integer>();
