@@ -12,38 +12,18 @@ public class _72WiggleSortII {
      * @param nums 给定的整数数组
      */
     public void wiggleSort(int[] nums) {
-        // 先对数组进行排序
-        Arrays.sort(nums);
-
-        // 从中间开始交替放置元素
-        int mid = (nums.length - 1) / 2;
-        int[] temp = new int[nums.length];
-
-        // 从中间向两边交替放置元素
-        int left = 0, right = nums.length - 1;
-        for (int i = 0; i <= mid; i++) {
-            temp[left] = nums[mid - i];
-            left += 2;
-        }
-
-        for (int i = 0; i <= mid; i++) {
-            temp[right] = nums[mid + i];
-            right -= 2;
-        }
-
-        // 将 temp 数组复制回原数组
-        System.arraycopy(temp, 0, nums, 0, nums.length);
-    }
-
-    public static void main(String[] args) {
-        _72WiggleSortII solution = new _72WiggleSortII();
-        int[] nums = {1, 5, 1, 1, 6, 4};
-        solution.wiggleSort(nums);
-
-        // 输出结果
-        for (int num : nums) {
-            System.out.print(num + " ");
+        int[] arr = nums.clone();
+        Arrays.sort(arr);
+        int n = nums.length;
+        int x = (n + 1) / 2;
+        for (int i = 0, j = x - 1, k = n - 1; i < n; i += 2, j--, k--) {
+            nums[i] = arr[j];
+            if (i + 1 < n) {
+                nums[i + 1] = arr[k];
+            }
         }
     }
 }
+
+
 
