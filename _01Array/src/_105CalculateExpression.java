@@ -1,68 +1,42 @@
+import java.util.Deque;
+import java.util.LinkedList;
 import java.util.Stack;
 
 public class _105CalculateExpression {
 
     public int calculate(String s) {
-        Stack<Integer> stack = new Stack<>();
-        int currentNumber = 0;
-        int result = 0;
-        char sign = '+';
+        Deque<Integer> ops = new LinkedList<Integer>();
+        ops.push(1);
+        int sign = 1;
 
-        for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-
-            // 如果是数字，则累加到当前数字变量中
-            if (Character.isDigit(c)) {
-                currentNumber = currentNumber * 10 + (c - '0');
-            }
-
-            // 如果遇到运算符或到达字符串末尾
-            if (!Character.isDigit(c) && c != ' ' || i == s.length() - 1) {
-                if (sign == '+') {
-                    stack.push(currentNumber);
-                } else if (sign == '-') {
-                    stack.push(-currentNumber);
-                }
-
-                // 更新当前数字变量和运算符
-                sign = c;
-                currentNumber = 0;
-            }
-
-            // 如果遇到左括号，递归处理括号内的表达式
-            if (c == '(') {
-                int closeIndex = findMatchingParentheses(s, i);
-                int subResult = calculate(s.substring(i + 1, closeIndex));
-                if (sign == '+') {
-                    stack.push(subResult);
-                } else if (sign == '-') {
-                    stack.push(-subResult);
-                }
-                i = closeIndex;
-            }
-        }
-
-        // 计算栈中所有元素的总和
-        while (!stack.isEmpty()) {
-            result += stack.pop();
-        }
-
-        return result;
-    }
-
-    private int findMatchingParentheses(String s, int openIndex) {
-        int count = 1;
-        for (int i = openIndex + 1; i < s.length(); i++) {
-            if (s.charAt(i) == '(') {
-                count++;
+        int ret = 0;
+        int n = s.length();
+        int i = 0;
+        while (i < n) {
+            if (s.charAt(i) == ' ') {
+                i++;
+            } else if (s.charAt(i) == '+') {
+                sign = ops.peek();
+                i++;
+            } else if (s.charAt(i) == '-') {
+                sign = -ops.peek();
+                i++;
+            } else if (s.charAt(i) == '(') {
+                ops.push(sign);
+                i++;
             } else if (s.charAt(i) == ')') {
-                count--;
-            }
-            if (count == 0) {
-                return i;
+                ops.pop();
+                i++;
+            } else {
+                long num = 0;
+                while (i < n && Character.isDigit(s.charAt(i))) {
+                    num = num * 10 + s.charAt(i) - '0';
+                    i++;
+                }
+                ret += sign * num;
             }
         }
-        return -1; // 不应该发生
+        return ret;
     }
 
     public static void main(String[] args) {
