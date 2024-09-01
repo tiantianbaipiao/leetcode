@@ -8,58 +8,44 @@ public class _107ReverseKGroup {
      * @return 新的头结点
      */
     public ListNode reverseKGroup(ListNode head, int k) {
-        // 创建虚拟头节点
-        ListNode dummy = new ListNode(0);
-        dummy.next = head;
+        ListNode hair = new ListNode(0);
+        hair.next = head;
+        ListNode pre = hair;
 
-        // 初始化指针
-        ListNode pre = dummy;
-        ListNode end = dummy;
-
-        while (true) {
-            // 找到当前组的结尾
+        while (head != null) {
+            ListNode tail = pre;
+            // 查看剩余部分长度是否大于等于 k
             for (int i = 0; i < k; ++i) {
-                if (end == null) {
-                    return dummy.next;
+                tail = tail.next;
+                if (tail == null) {
+                    return hair.next;
                 }
-                end = end.next;
             }
-
-            // 找到下一组的开始
-            ListNode next = end.next;
-
-            // 翻转当前组
-            ListNode start = pre.next;
-            pre.next = reverse(start, end);
-
-            // 更新指针
-            pre = start;
-            end = next;
-        }
-    }
-
-    /**
-     * 翻转从 start 到 end 的链表
-     *
-     * @param start 开始节点
-     * @param end 结束节点
-     * @return 翻转后的头结点
-     */
-    private ListNode reverse(ListNode start, ListNode end) {
-        ListNode prev = null;
-        ListNode curr = start;
-
-        while (curr != end) {
-            ListNode next = curr.next;
-            curr.next = prev;
-            prev = curr;
-            curr = next;
+            ListNode nex = tail.next;
+            ListNode[] reverse = myReverse(head, tail);
+            head = reverse[0];
+            tail = reverse[1];
+            // 把子链表重新接回原链表
+            pre.next = head;
+            tail.next = nex;
+            pre = tail;
+            head = tail.next;
         }
 
-        // 连接翻转后的链表
-        start.next = end;
-        return prev;
+        return hair.next;
     }
+    public ListNode[] myReverse(ListNode head, ListNode tail) {
+        ListNode prev = tail.next;
+        ListNode p = head;
+        while (prev != tail) {
+            ListNode nex = p.next;
+            p.next = prev;
+            prev = p;
+            p = nex;
+        }
+        return new ListNode[]{tail, head};
+    }
+
 
     // 链表节点定义
     public static class ListNode {
