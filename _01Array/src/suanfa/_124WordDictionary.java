@@ -1,4 +1,4 @@
-import java.util.*;
+package suanfa;
 
 public class _124WordDictionary {
 

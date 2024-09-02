@@ -1,4 +1,4 @@
-import java.util.Arrays;
+package suanfa;
 
 class Node {
     public boolean val;
