@@ -1,3 +1,5 @@
+package suanfa;
+
 public class _134UniquePathsWithObstacles {
 
     /**
