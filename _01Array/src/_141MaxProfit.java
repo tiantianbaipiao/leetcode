@@ -14,55 +14,30 @@ public class _141MaxProfit {
      * @return 最大化后的总利润
      */
     public int findMaximizedCapital(int k, int w, int[] profits, int[] capital) {
-        // 将项目按照成本从小到大排序
-        Project[] projects = new Project[profits.length];
-        for (int i = 0; i < profits.length; i++) {
-            projects[i] = new Project(capital[i], profits[i]);
+        int n = profits.length;
+        int curr = 0;
+        int[][] arr = new int[n][2];
+
+        for (int i = 0; i < n; ++i) {
+            arr[i][0] = capital[i];
+            arr[i][1] = profits[i];
         }
-        Arrays.sort(projects, Comparator.comparingInt(Project::getCapital));
+        Arrays.sort(arr, (a, b) -> a[0] - b[0]);
 
-        // 使用优先队列（大顶堆）来存储当前可投资的项目
-        PriorityQueue<Project> availableProjects = new PriorityQueue<>((a, b) -> b.getProfit() - a.getProfit());
-
-        // 当前可用资本
-        int currentCapital = w;
-
-        // 选择 k 个项目进行投资
-        for (int i = 0; i < k; i++) {
-            // 将所有当前可用的项目加入 availableProjects
-            while (currentCapital >= projects[i].getCapital()) {
-                availableProjects.offer(projects[i]);
-                i++;
-                if (i == projects.length) break;
+        PriorityQueue<Integer> pq = new PriorityQueue<>((x, y) -> y - x);
+        for (int i = 0; i < k; ++i) {
+            while (curr < n && arr[curr][0] <= w) {
+                pq.add(arr[curr][1]);
+                curr++;
             }
-
-            // 如果没有可用项目，则退出循环
-            if (availableProjects.isEmpty()) break;
-
-            // 选择当前利润最大的项目进行投资
-            Project bestProject = availableProjects.poll();
-            currentCapital += bestProject.getProfit();
+            if (!pq.isEmpty()) {
+                w += pq.poll();
+            } else {
+                break;
+            }
         }
 
-        return currentCapital;
-    }
-
-    private static class Project {
-        private final int capital;
-        private final int profit;
-
-        public Project(int capital, int profit) {
-            this.capital = capital;
-            this.profit = profit;
-        }
-
-        public int getCapital() {
-            return capital;
-        }
-
-        public int getProfit() {
-            return profit;
-        }
+        return w;
     }
 
     public static void main(String[] args) {
