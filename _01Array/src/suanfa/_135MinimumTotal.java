@@ -1,3 +1,5 @@
+package suanfa;
+
 import java.util.List;
 
 public class _135MinimumTotal {

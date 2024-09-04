@@ -1,5 +1,6 @@
+package suanfa;
+
 import java.util.Arrays;
-import java.util.Comparator;
 import java.util.PriorityQueue;
 
 public class _141MaxProfit {
