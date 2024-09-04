@@ -14,7 +14,7 @@ public class _140KSmallestPairs {
      */
     public List<List<Integer>> kSmallestPairs(int[] nums1, int[] nums2, int k) {
         List<List<Integer>> result = new ArrayList<>();
-        
+
         // 使用优先队列（小顶堆）来存储数对和及其对应的索引
         PriorityQueue<int[]> pq = new PriorityQueue<>((a, b) -> a[0] - b[0]);
 
@@ -22,9 +22,6 @@ public class _140KSmallestPairs {
         for (int i = 0; i < nums1.length && i < k; i++) {
             pq.offer(new int[]{nums1[i] + nums2[0], i, 0});
         }
-
-        // 标记已访问过的数对
-        boolean[][] visited = new boolean[nums1.length][nums2.length];
 
         // 遍历k次，每次取出最小的数对
         while (!pq.isEmpty() && result.size() < k) {
@@ -40,9 +37,8 @@ public class _140KSmallestPairs {
             result.add(pair);
 
             // 向右移动
-            if (col + 1 < nums2.length && !visited[row][col + 1]) {
+            if (col + 1 < nums2.length) {
                 pq.offer(new int[]{nums1[row] + nums2[col + 1], row, col + 1});
-                visited[row][col + 1] = true;
             }
         }
 
