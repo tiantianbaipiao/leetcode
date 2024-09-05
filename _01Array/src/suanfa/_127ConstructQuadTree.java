@@ -1,14 +1,14 @@
 package suanfa;
 
-class Node {
+class Node2 {
     public boolean val;
     public boolean isLeaf;
-    public Node topLeft;
-    public Node topRight;
-    public Node bottomLeft;
-    public Node bottomRight;
+    public Node2 topLeft;
+    public Node2 topRight;
+    public Node2 bottomLeft;
+    public Node2 bottomRight;
 
-    public Node() {
+    public Node2() {
         this.val = false;
         this.isLeaf = false;
         this.topLeft = null;
@@ -17,7 +17,7 @@ class Node {
         this.bottomRight = null;
     }
 
-    public Node(boolean val, boolean isLeaf) {
+    public Node2(boolean val, boolean isLeaf) {
         this.val = val;
         this.isLeaf = isLeaf;
         this.topLeft = null;
@@ -26,7 +26,7 @@ class Node {
         this.bottomRight = null;
     }
 
-    public Node(boolean val, boolean isLeaf, Node topLeft, Node topRight, Node bottomLeft, Node bottomRight) {
+    public Node2(boolean val, boolean isLeaf, Node2 topLeft, Node2 topRight, Node2 bottomLeft, Node2 bottomRight) {
         this.val = val;
         this.isLeaf = isLeaf;
         this.topLeft = topLeft;
@@ -43,7 +43,7 @@ public class _127ConstructQuadTree {
      * @param grid 二维网格
      * @return 四叉树的根节点
      */
-    public Node construct(int[][] grid) {
+    public Node2 construct(int[][] grid) {
         return buildQuadTree(grid, 0, 0, grid.length);
     }
 
@@ -55,20 +55,20 @@ public class _127ConstructQuadTree {
      * @param size 子区域的大小
      * @return 当前子区域的四叉树节点
      */
-    private Node buildQuadTree(int[][] grid, int x, int y, int size) {
+    private Node2 buildQuadTree(int[][] grid, int x, int y, int size) {
         // 如果子区域内所有值相同，则构建叶子节点
         if (isUniform(grid, x, y, size)) {
-            return new Node(grid[x][y] == 1, true);
+            return new Node2(grid[x][y] == 1, true);
         }
 
         // 否则，递归构建四个子区域的四叉树
         int newSize = size / 2;
-        Node topLeft = buildQuadTree(grid, x, y, newSize);
-        Node topRight = buildQuadTree(grid, x, y + newSize, newSize);
-        Node bottomLeft = buildQuadTree(grid, x + newSize, y, newSize);
-        Node bottomRight = buildQuadTree(grid, x + newSize, y + newSize, newSize);
+        Node2 topLeft = buildQuadTree(grid, x, y, newSize);
+        Node2 topRight = buildQuadTree(grid, x, y + newSize, newSize);
+        Node2 bottomLeft = buildQuadTree(grid, x + newSize, y, newSize);
+        Node2 bottomRight = buildQuadTree(grid, x + newSize, y + newSize, newSize);
 
-        return new Node(false, false, topLeft, topRight, bottomLeft, bottomRight);
+        return new Node2(false, false, topLeft, topRight, bottomLeft, bottomRight);
     }
 
     /**
@@ -105,7 +105,7 @@ public class _127ConstructQuadTree {
         };
 
         _127ConstructQuadTree quadTree = new _127ConstructQuadTree();
-        Node root = quadTree.construct(grid);
+        Node2 root = quadTree.construct(grid);
 
         // 打印四叉树（此处省略打印逻辑）
         System.out.println("四叉树构建完成");
