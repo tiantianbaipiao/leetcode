@@ -6,14 +6,14 @@ import java.util.Map;
  * https://leetcode.com/problems/two-sum/
  * @author Lixiaoshuang
  * @date 2025/04/19
- * @descrption
+ * @descrption 给定一个整数数组 nums 和一个整数目标值 target，请你在该数组中找出 和为目标值 target  的那 两个 整数，并返回它们的数组下标。
  */
 public class _01TwoSum {
   // 暴力求解
   public int[] twoSum (int nums[], int target){
     int[] res = new int[2];
     for(int i = 0; i < nums.length; i++){
-      for(int j = 1; j < nums.length; j++){
+      for(int j = i+1; j < nums.length; j++){
         if(target == nums[i]+nums[j]){
           res[0] = i;
           res[1] = j;
@@ -41,9 +41,9 @@ public class _01TwoSum {
   }
   public static void main(String[] args) {
     _01TwoSum method = new _01TwoSum();
-    int[] nums = {3, 2, 4};
-    int target = 6;
-    int res[] = method.twoSum_1(nums, target);
+    int[] nums = {2, 7, 11, 5};
+    int target = 9;
+    int res[] = method.twoSum(nums, target);
     System.out.println(Arrays.toString(res));
   }
 }
