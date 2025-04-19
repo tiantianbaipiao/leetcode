@@ -21,7 +21,7 @@ public class _01TwoSum {
     }
     return null;
   }
-  // 优化方案
+  // 优化方案 哈希表
   public int[] twoSum_1 (int nums[], int target){
     int[] res = new int[2];
     for(int i = 0; i < nums.length; i++){
