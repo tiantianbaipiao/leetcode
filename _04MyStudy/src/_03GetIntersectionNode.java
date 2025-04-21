@@ -38,7 +38,7 @@ public class _03GetIntersectionNode {
     return null;
   }
 
-  // 方案二 双链表 追及相遇问题
+  // 方案二 双指针 追及相遇问题
   public ListNode getIntersectionNode_1(ListNode headA, ListNode headB) {
     // 1. 判断两个链表是否为空
     if(headA == null || headB == null){
