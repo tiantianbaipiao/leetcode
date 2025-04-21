@@ -23,7 +23,28 @@ public class _05IsPalindrome {
     // 1. 快慢指针法找到需要反转的位置(慢指针slow走一步，快指针fast走两步)
     ListNode slow = head;
     ListNode fast = head;
-    while (fast != null && fast.next == null){
+    while (fast != null && fast.next != null){
+      slow = slow.next;
+      fast = fast.next.next;
+    }
+    // 2. 翻转后半部分链表
+    ListNode temp = null;
+    ListNode prev = null;
+    while (slow != null){
+      temp = slow.next;
+      slow.next = prev;
+      prev = slow;
+      slow = temp;
+    }
+    // 3. 比较
+    ListNode left = head;
+    ListNode right = prev;
+    while (right != null){
+      if(left.val != right.val){
+        return false;
+      }
+      left = left.next;
+      right = right.next;
     }
     return true;
   }
